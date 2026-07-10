@@ -1,0 +1,19 @@
+[gpg]
+  format = ssh
+[commit]
+  gpgsign = true
+[push]
+  autoSetupRemote = true
+[gpg "ssh"]
+  # Note that this requires SSH_AUTH_SOCK to point to the Unix socket path of a running
+  # SSH agent daemon. On Linux systems, such daemon can be forwarded or bind mounted if
+  # necessary. On macOS systems where git is executed in a Linux container, this requires
+  # support from Colima (https://github.com/abiosoft/colima/issues/127#issuecomment-1014474574)
+  # or Docker Desktop (https://github.com/docker/for-mac/issues/410).
+  defaultKeyCommand = ssh-add -L
+[include]
+  # Allow site, user-specific global configuration (e.g., user.name, user.email)
+  # in this file. In this case, it's also recommended to create a ~/.gitconfig file
+  # so that `git config --global` commands write new settings there, without modifying
+  # this non-specific configuration.
+  path = ~/.gitconfig
